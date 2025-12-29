@@ -420,3 +420,49 @@
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunImprovised
+
+- type: entity
+  name: Emergency Toolbox
+  parent: [BaseWeaponShotgun, ToolboxEmergencyFilled]
+  id: ToolboxShotgun
+  description: Emergency? Oh. Yes, emergency
+  suffix: Gun
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 2
+  - type: StorageFill
+    contents:
+    - id: CrowbarRed
+    - id: RadioHandheld
+    - id: WelderMini
+    - id: FireExtinguisherMini
+    - id: Flare
+      amount: 2
+    - id: RadioJammer
+      prob: 0.3
+    - id: SoapSyndie
+      prob: 0.3
+    - id: CigPackSyndicate
+      prob: 0.3
+    - id: GrenadeFlashBang
+      prob: 0.15
+    - id: SmokeGrenade
+      prob: 0.2
+    - id: C4
+      prob: 0.1
+    - id: EmpGrenade
+      prob: 0.1
+    - id: PelletShotgunBeanbag
+      prob: 0.1
+    - id: FoodTinMRE
+      prob: 0.5

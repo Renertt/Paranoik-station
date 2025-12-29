@@ -37,3 +37,5 @@ ent-WeaponShotgunImprovised = самодельный дробовик
 ent-WeaponShotgunImprovisedLoaded = самодельный дробовик
     .suffix = Дробовик, Заряжен
     .desc = { ent-WeaponShotgunImprovised.desc }
+ent-ToolboxShotgun = аварийный ящик для инструментов
+    .desc = Ярко-красный ящик для инструментов, укомплектованный аварийными инструментами. Отверстие? Технологическое, да
