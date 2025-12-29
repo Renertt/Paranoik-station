@@ -211,6 +211,15 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkToolboxShotgun
+  name: uplink-ToolboxShotgun-name
+  description: uplink-ToolboxShotgun-desc
+  productEntity: ToolboxShotgun
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkWeaponry
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
@@ -1173,8 +1182,8 @@
       blacklist:
         components:
           - SurplusBundle
-          
-- type: listing 
+
+- type: listing
   id: UplinkOmnimedToolSyndie # CorvaxGoob
   name: uplink-omnimed-tool-syndie-name
   description: uplink-omnimed-tool-syndie-desc
