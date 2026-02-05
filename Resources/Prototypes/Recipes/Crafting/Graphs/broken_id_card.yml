@@ -1,0 +1,35 @@
+- type: constructionGraph
+  id: brokenIDConstruct
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: stage
+          steps:
+            - tool: Screwing
+              doAfter: 3
+          completed:
+            - !type:ModifySprite
+              sprite: Objects/Tools/emag.rsi
+              state: icon
+
+    - node: stage
+      edges:
+        - to: broken
+          steps:
+            - tool: Cutting
+              doAfter: 3
+        - to: start
+          steps:
+            - material: Plastic
+              amount: 1
+              doAfter: 1
+            - tool: Ignition
+              doAfter: 3
+          completed:
+            - !type:ModifySprite
+              sprite: Objects/Misc/id_cards.rsi
+              state: gold
+
+    - node: broken
+      entity: IDCardBroken
