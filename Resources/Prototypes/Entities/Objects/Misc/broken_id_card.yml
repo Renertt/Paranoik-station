@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  id: IDCardBroken
+  name: broken identification card
+  description: This card seems to be broken, and doesn't fit in the PDA.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/emag.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/emag.rsi
+    storedRotation: -90
+  - type: StaticPrice
+    price: 5
+  - type: Construction
+    graph: brokenIDConstruct
+    node: broken

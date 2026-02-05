@@ -50,7 +50,7 @@ public abstract class SharedChargesSystem : EntitySystem
     {
         if (!args.IsInDetailsRange)
             return;
-
+        /*
         var rechargeEnt = new Entity<LimitedChargesComponent?, AutoRechargeComponent?>(uid, comp, null);
         var charges = GetCurrentCharges(rechargeEnt);
         using var _ = args.PushGroup(nameof(LimitedChargesComponent));
@@ -67,6 +67,7 @@ public abstract class SharedChargesSystem : EntitySystem
 
         var timeRemaining = GetNextRechargeTime(rechargeEnt);
         args.PushMarkup(Loc.GetString("limited-charges-recharging", ("seconds", timeRemaining.TotalSeconds.ToString("F1"))));
+        */
     }
 
     private void OnChargesAttempt(Entity<LimitedChargesComponent> ent, ref ActionAttemptEvent args)

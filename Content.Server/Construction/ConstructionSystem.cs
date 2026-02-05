@@ -43,8 +43,10 @@
 
 using Content.Server._CorvaxGoob.Skills;
 using Content.Server.Construction.Components;
+using Content.Shared.Construction.Components;
 using Content.Server.Stack;
 using Content.Shared._CorvaxGoob.Skills;
+using Robust.Shared.GameStates;
 using Content.Shared.Construction;
 using Content.Shared.DoAfter;
 using Content.Shared.Stacks;
@@ -89,6 +91,13 @@ namespace Content.Server.Construction
 
             SubscribeLocalEvent<ConstructionComponent, ComponentInit>(OnConstructionInit);
             SubscribeLocalEvent<ConstructionComponent, ComponentStartup>(OnConstructionStartup);
+            SubscribeLocalEvent<ConstructionSpriteComponent, ComponentGetState>(OnConstructionSpriteGetState);
+        }
+
+        private void OnConstructionSpriteGetState(EntityUid uid, ConstructionSpriteComponent component, ref ComponentGetState args)
+        {
+            Log.Info($"OnConstructionSpriteGetState: uid={uid}, sprite={component.Sprite}, state={component.State}, layer={component.Layer}");
+            args.State = new ConstructionSpriteComponentState(component.Sprite, component.State, component.Layer);
         }
 
         private void OnConstructionInit(Entity<ConstructionComponent> ent, ref ComponentInit args)

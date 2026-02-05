@@ -1,5 +1,5 @@
-ent-EmagUnlimited = cryptographic sequencer
-    .desc = The all-in-one hacking solution. Friend of any syndicate. The iconic EMAG.
+ent-EmagUnlimited = broken identification card
+    .desc = This card seems to be broken, and doesn't fit in the PDA.
     .suffix = Unlimited
 ent-Emag = { ent-EmagUnlimited }
     .suffix = Limited
