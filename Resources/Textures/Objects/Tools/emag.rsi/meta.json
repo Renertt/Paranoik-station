@@ -15,18 +15,8 @@
       "name": "inhand-right",
       "directions": 4
     },
-      {
-          "name": "icon",
-          "delays": [
-              [
-                  0.1,
-                  0.1,
-                  0.1,
-                  0.1,
-                  0.1,
-                  0.1
-              ]
-          ]
-      }
+    {
+      "name": "icon"
+    }
   ]
 }
