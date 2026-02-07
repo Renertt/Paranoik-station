@@ -195,7 +195,7 @@
   - type: SpawnEntitiesOnHit
     spawnOnlyIfHitMob: true
     proto: MobAngryBeeWeak
-    amount: 8
+    amount: 5
     collideIgnoreEntities:
     - MobBee
     - MobAngryBee
