@@ -7,7 +7,7 @@
         - to: stage
           steps:
             - tool: Screwing
-              doAfter: 3
+              doAfter: 4
           completed:
             - !type:ModifySprite
               sprite: Objects/Tools/emag.rsi
@@ -19,17 +19,52 @@
           steps:
             - tool: Cutting
               doAfter: 3
+            - tool: Slicing
+              doAfter: 7
         - to: start
           steps:
             - material: Plastic
               amount: 1
-              doAfter: 1
+              doAfter: 2
             - tool: Ignition
-              doAfter: 3
+              doAfter: 5
           completed:
             - !type:ModifySprite
               sprite: Objects/Misc/id_cards.rsi
-              state: gold
+              state: default_improvised
+        - to: start
+          steps:
+          - material: Gold
+            amount: 1
+            doAfter: 4
+          - tool: Welding
+            doAfter: 10
+          completed:
+          - !type:ModifySprite
+            sprite: Objects/Misc/id_cards.rsi
+            state: gold_improvised
+        - to: start
+          steps:
+          - material: Silver
+            amount: 1
+            doAfter: 6
+          - tool: Welding
+            doAfter: 10
+          completed:
+          - !type:ModifySprite
+            sprite: Objects/Misc/id_cards.rsi
+            state: silver_improvised
+        - to: start
+          steps:
+          - material: Uranium
+            amount: 1
+            doAfter: 6
+          - tool: UraniumWelding
+            doAfter: 10
+          completed:
+          - !type:ModifySprite
+            sprite: Objects/Misc/id_cards.rsi
+            state: uranium_improvised
 
     - node: broken
       entity: IDCardBroken
