@@ -11,6 +11,12 @@
       "name": "default"
     },
     {
+      "name": "default_improvised"
+    },
+    {
+      "name": "uranium_improvised"
+    },
+    {
       "name": "centcom"
     },
     {
@@ -36,6 +42,9 @@
     },
     {
       "name": "gold"
+    },
+    {
+      "name": "gold_improvised"
     },
     {
       "name": "idpassenger"
@@ -222,6 +231,9 @@
     },
     {
       "name": "silver"
+    },
+    {
+      "name": "silver_improvised"
     },
     {
       "name": "syndie"
