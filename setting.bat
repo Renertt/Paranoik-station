@@ -1,4 +1,6 @@
 @echo off
+chcp 65001 >nul
+
 echo Pulling latest changes...
 git pull
 git submodule update --init --recursive
