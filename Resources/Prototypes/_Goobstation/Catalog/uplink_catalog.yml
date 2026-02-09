@@ -322,10 +322,6 @@
   categories:
   - UplinkWeaponry
   conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
   - !type:ListingLimitedStockCondition
     stock: 1
 
@@ -371,11 +367,6 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkWSPR
@@ -419,11 +410,6 @@
     Telecrystal: 80
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkDualettaBundle
@@ -445,11 +431,6 @@
     Telecrystal: 38 # This + esword = 75 TC
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkBulkMosin
@@ -598,14 +579,9 @@
   icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
   productEntity: ClothingHandsGlovesGuerrilla
   cost:
-    Telecrystal: 60
+    Telecrystal: 63
   categories:
   - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 # Job specific
 - type: listing
@@ -618,10 +594,6 @@
     Telecrystal: 40
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
 
 - type: listing
   id: UplinkSyndicateWhimsyBundle
@@ -632,10 +604,6 @@
     Telecrystal: 65
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
 
 - type: listing
   id: UplinkHisGrace
@@ -648,13 +616,10 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chaplain
-  - !type:ObjectiveCondition # CorvaxGoob : MRP antags
-    whitelist:
-    - HijackShuttleObjective
-    - NukeDiskStealObjective
+  #- !type:ObjectiveCondition # CorvaxGoob : MRP antags
+   # whitelist:
+    #- HijackShuttleObjective
+    #- NukeDiskStealObjective # Paranoik: RP syndicate
   saleLimit: 1
 
 
@@ -667,11 +632,6 @@
     Telecrystal: 14
   categories:
     -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
-    - Mime
 
 
 - type: listing
@@ -683,11 +643,6 @@
     Telecrystal: 5
   categories:
     -  UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
-    - Mime
 
 - type: listing
   id: UplinkClowncar
@@ -740,11 +695,6 @@
     Telecrystal: 16
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Botanist
-    - Zookeeper
 
 - type: listing
   id: UplinkDartGun
@@ -755,10 +705,6 @@
     Telecrystal: 20
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerDepartmentCondition
-    whitelist:
-    - Medical
 
 - type: listing
   id: UplinkMagazineNailgun
@@ -769,10 +715,6 @@
     Telecrystal: 3
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerDepartmentCondition
-    whitelist:
-    - Engineering
 
 - type: listing
   id: UplinkPKAUpgradePressure
@@ -783,10 +725,6 @@
     Telecrystal: 30
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - SalvageSpecialist
 
 - type: listing
   id: UplinkGreyTide
@@ -799,9 +737,6 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Passenger
   - !type:ListingLimitedStockCondition
     stock: 1
 
@@ -816,9 +751,6 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Mime
   - !type:ListingLimitedStockCondition
     stock: 1
 
@@ -944,16 +876,13 @@
 
 # I don't know if this is balanced, so i'm just going to leave it commented out.
 # If you want to add this in the future, feel free. - Sol
-#- type: listing
-#  id: UplinkStypticStimulatorImplanter
-#  name: uplink-styptic-stimulator-implant-name
-#  description: uplink-styptic-stimulator-implant-desc
-#  icon: { sprite: Objects/Specific/Medical/medical.rsi, state: brutepack }
-#  productEntity: StypticStimulatorImplanter
-#  cost:
-#    Telecrystal: 40
-#  categories:
-#  - UplinkImplants
+# Paranoik: Added and increased cost by 20TC, idk how balanced it this too, but let it be
+  icon: { sprite: Objects/Specific/Medical/medical.rsi, state: brutepack }
+  productEntity: StypticStimulatorImplanter
+  cost:
+    Telecrystal: 60
+  categories:
+  - UplinkImplants
 
 - type: listing
   id: UplinkKravMagaImplanter
@@ -1009,27 +938,22 @@
     Telecrystal: 66 # The urge to make it 65...
   categories:
   - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
-- type: listing
-  id: NukieUplinkAutosurgeonSandevistan
-  name: uplink-autosurgeon-sandevistan-name
-  description: uplink-autosurgeon-sandevistan-desc
-  icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
-  productEntity: AutosurgeonSandevistan
-  cost:
-    Telecrystal: 124
-  categories:
-  - UplinkImplants
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - LoneOpsUplink
+#- type: listing
+ # id: NukieUplinkAutosurgeonSandevistan
+  #name: uplink-autosurgeon-sandevistan-name
+  #description: uplink-autosurgeon-sandevistan-desc
+  #icon: { sprite: _Goobstation/Objects/Misc/sandevistan.rsi, state: icon }
+  #productEntity: AutosurgeonSandevistan
+  #cost:
+   # Telecrystal: 124
+  #categories:
+  #- UplinkImplants
+  #conditions:
+  #- !type:StoreWhitelistCondition
+   # whitelist:
+    #  tags:
+     # - LoneOpsUplink # Paranoik: Let it cost the same
 
 
 - type: listing
@@ -1098,11 +1022,6 @@
     Telecrystal: 60
   categories:
   - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
 
 # Deception
 
@@ -1397,12 +1316,6 @@
     Telecrystal: 650
   categories:
   - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-      - ContravendUplink
 
 # Martial Arts
 - type: listing
@@ -1414,28 +1327,22 @@
     Telecrystal: 60
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-      - ContravendUplink
 
-- type: listing
-  id: UplinkCQCManualChef
-  name: uplink-cqc-name
-  description: uplink-cqc-desc
-  productEntity: CQCManual
-  cost:
-    Telecrystal: 60
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chef
+#- type: listing # Paranoik: Above
+#  id: UplinkCQCManualChef
+#  name: uplink-cqc-name
+#  description: uplink-cqc-desc
+#  productEntity: CQCManual
+#  cost:
+#    Telecrystal: 60
+#  categories:
+#  - UplinkJob
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  - !type:BuyerJobCondition
+#    whitelist:
+#    - Chef
 
 - type: listing
   id: UplinkCapoeiraManual
@@ -1456,11 +1363,6 @@
     Telecrystal: 70
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 # Explosives
 
@@ -1491,14 +1393,9 @@
   productEntity: WeaponLauncherRocketDisposable
   icon: { sprite: _Goobstation/Objects/Weapons/Guns/Launchers/m172.rsi, state: icon }
   cost:
-    Telecrystal: 6 # Basically a worse C4 but ranged
+    Telecrystal: 8 # Basically a worse C4 but ranged
   categories:
   - UplinkExplosives
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkRPOA
@@ -1521,11 +1418,6 @@
     Telecrystal: 6 # one and a half incendiary grenades, takes up the same space as three
   categories:
   - UplinkExplosives
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 # Misc
 - type: listing
@@ -1547,10 +1439,6 @@
     Telecrystal: 35
   categories:
   - UplinkWearables
-  conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Human
 
 - type: listing
   id: UplinkUndeterminedBundle
@@ -1581,10 +1469,6 @@
     Telecrystal: 32 # Worse than esword for combat, better for breaching
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Dwarf # Rock and stone
 
 - type: listing
   id: UplinkBloodredCassette
@@ -1607,10 +1491,6 @@
   categories:
   - UplinkWeaponry # Usually the first tab new players look at
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-        - NukeOpsUplink
     - !type:BuyerWhitelistCondition
       blacklist:
         components:
@@ -1662,9 +1542,6 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  - !type:BuyerJobCondition
-    whitelist:
-    - RadioHost
 
 - type: listing
   id: UplinkBoxXenobio
@@ -1676,8 +1553,3 @@
     Telecrystal: 250
   categories:
     - UplinkDisruption
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink

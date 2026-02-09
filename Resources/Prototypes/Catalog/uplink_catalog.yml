@@ -900,15 +900,6 @@
     Telecrystal: 100 # goob
   categories:
   - UplinkChemicals
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
 
 
 # Deception
@@ -1322,11 +1313,6 @@
     Telecrystal: 70 # goob
   categories:
   - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 
 - type: listing
@@ -1379,10 +1365,6 @@
   categories:
     - UplinkAllies
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
       blacklist:
         tags:
         - ContravendUplink
@@ -1435,11 +1417,6 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkAllies
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 
 - type: listing
@@ -1490,11 +1467,6 @@
     Telecrystal: 40 # goob
   categories:
     - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
 
 
 - type: listing
@@ -1644,11 +1616,6 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
 
 
 - type: listing
@@ -1661,10 +1628,6 @@
   categories:
   - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
     - !type:BuyerWhitelistCondition
       blacklist:
         components:
@@ -1841,11 +1804,6 @@
     Telecrystal: 50 # goob
   categories:
   - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 
 - type: listing
@@ -1891,11 +1849,6 @@
     Telecrystal: 10 # goob
   categories:
     - UplinkWearables
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
 
 # Goobstation - Explosive gloves
 #- type: listing
@@ -2098,10 +2051,6 @@
     Telecrystal: 30 # goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Botanist
 
 
 - type: listing
@@ -2113,10 +2062,6 @@
     Telecrystal: 30 # goob
   categories:
     - UplinkJob
-  conditions:
-    - !type:BuyerJobCondition
-      whitelist:
-        - Passenger
 
 
 - type: listing
@@ -2128,10 +2073,6 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkJob
-  conditions:
-    - !type:BuyerJobCondition
-      whitelist:
-        - Boxer
 
 
 - type: listing
@@ -2144,9 +2085,6 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chaplain
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -2162,10 +2100,6 @@
     Telecrystal: 100 # goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chaplain
 
 
 - type: listing
@@ -2177,11 +2111,6 @@
     Telecrystal: 20 # goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Mime
-    - Clown
 
 
 - type: listing
@@ -2194,10 +2123,6 @@
     Telecrystal: 8 # goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
 
 
 - type: listing
@@ -2209,10 +2134,6 @@
     Telecrystal: 18 # goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
 
 
 - type: listing
@@ -2225,10 +2146,6 @@
     Telecrystal: 60 # goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Clown
 
 
 - type: listing
@@ -2240,13 +2157,6 @@
     Telecrystal: 20 # goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chef
-    - Botanist
-    - Clown
-    - Mime
 
 
 - type: listing
@@ -2258,10 +2168,6 @@
     Telecrystal: 10 # goob - Weak but very cheap
   categories:
   - UplinkJob
-  conditions:
-    - !type:BuyerDepartmentCondition
-      whitelist:
-      - Science
 
 
 - type: listing
@@ -2274,9 +2180,6 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Janitor
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -2293,13 +2196,6 @@
     Telecrystal: 35 # goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Zookeeper and Chef can also get this
-    whitelist:
-    - Zookeeper
-    - Scientist
-    - ResearchDirector
-    - Chef
 
 
 - type: listing
@@ -2312,10 +2208,7 @@
     Telecrystal: 40 # E-sword sidegrade - goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Librarian
+  #conditions:
   #- !type:BuyerWhitelistCondition
   #  blacklist:
   #    components:
@@ -2332,11 +2225,6 @@
     Telecrystal: 20 # goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chef
-    - Mime
 
 - type: listing
   id: UplinkContrabandLighter
@@ -2369,7 +2257,3 @@
     Telecrystal: 20 # Goobstation
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chaplain
