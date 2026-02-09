@@ -7,11 +7,3 @@
    Telecrystal: 15
   categories:
   - UplinkChemicals
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - ContractorUplink
-  - !type:BuyerSpeciesCondition
-    whitelist:
-    - Oni
