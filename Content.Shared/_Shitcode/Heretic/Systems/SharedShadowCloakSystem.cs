@@ -193,11 +193,18 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
     private void OnEntParentChanged(Entity<ShadowCloakEntityComponent> ent, ref EntParentChangedMessage args)
     {
+        if (MetaData(ent).EntityLifeStage >= EntityLifeStage.Terminating ||
+            ent.Comp.LifeStage >= ComponentLifeStage.Stopping)
+            return;
+
         if (TerminatingOrDeleted(ent) || ent.Comp.DeletionAccumulator != null)
         {
-            if (args.OldParent != null && !TerminatingOrDeleted(args.OldParent.Value) &&
-                TryComp(args.OldParent.Value, out ShadowCloakedComponent? shadowCloaked))
-                RemoveShadowCloak((args.OldParent.Value, shadowCloaked));
+            if (args.OldParent is {Valid: true} oldId &&
+                !TerminatingOrDeleted(oldId) &&
+                TryComp<ShadowCloakedComponent>(oldId, out var shadowCloaked))
+            {
+                RemoveShadowCloak((oldId, shadowCloaked));
+            }
             return;
         }
 
@@ -321,7 +328,11 @@ public abstract class SharedShadowCloakSystem : EntitySystem
 
     private void RemoveShadowCloak(Entity<ShadowCloakedComponent> ent)
     {
+        if (ent.Comp.LifeStage >= ComponentLifeStage.Stopping || TerminatingOrDeleted(ent))
+            return;
+
         _status.TryRemoveStatusEffect(ent, ent.Comp.Status, remComp: false);
+
         RemCompDeferred(ent.Owner, ent.Comp);
     }
 

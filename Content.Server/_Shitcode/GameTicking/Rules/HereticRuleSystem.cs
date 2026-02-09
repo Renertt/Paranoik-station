@@ -87,6 +87,11 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
+        // Проверяем, не является ли он уже еретиком в рамках этого правила,
+        // чтобы не плодить дубликаты в списке Minds
+        if (!rule.Minds.Contains(mindId))
+            rule.Minds.Add(mindId);
+
         _role.MindAddRole(mindId, MindRole.Id, mind, true);
 
         // briefing
@@ -100,6 +105,7 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
             if (_role.MindHasRole<HereticRoleComponent>(mindId, out var mr))
                 AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
         }
+
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, HereticFactionId);
 
@@ -107,12 +113,25 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
 
         // add store
         var store = EnsureComp<StoreComponent>(target);
-        foreach (var category in rule.StoreCategories)
-            store.Categories.Add(category);
-        store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 2);
 
-        rule.Minds.Add(mindId);
+        // БЕЗОПАСНОЕ ДОБАВЛЕНИЕ КАТЕГОРИЙ
+        foreach (var category in rule.StoreCategories)
+        {
+            if (!store.Categories.Contains(category))
+                store.Categories.Add(category);
+        }
+
+        // БЕЗОПАСНОЕ ДОБАВЛЕНИЕ ВАЛЮТЫ
+        if (!store.CurrencyWhitelist.Contains(Currency))
+            store.CurrencyWhitelist.Add(Currency);
+
+        // БЕЗОПАСНОЕ ОБНОВЛЕНИЕ БАЛАНСА
+        // .TryAdd не кидает ошибку, если ключ есть.
+        // Если хочешь просто добавить очков к существующим — используй проверку.
+        if (!store.Balance.ContainsKey(Currency))
+            store.Balance.Add(Currency, 2);
+        else
+            store.Balance[Currency] += 2; // Добавляем еще 2 очка, если уже был еретиком
 
         return true;
     }
