@@ -1365,6 +1365,7 @@
   categories:
     - UplinkAllies
   conditions:
+    - !type:StoreWhitelistCondition
       blacklist:
         tags:
         - ContravendUplink

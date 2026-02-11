@@ -877,6 +877,10 @@
 # I don't know if this is balanced, so i'm just going to leave it commented out.
 # If you want to add this in the future, feel free. - Sol
 # Paranoik: Added and increased cost by 20TC, idk how balanced it this too, but let it be
+- type: listing
+  id: UplinkStypticStimulatorImplanter
+  name: uplink-styptic-stimulator-implant-name
+  description: uplink-styptic-stimulator-implant-desc
   icon: { sprite: Objects/Specific/Medical/medical.rsi, state: brutepack }
   productEntity: StypticStimulatorImplanter
   cost:
