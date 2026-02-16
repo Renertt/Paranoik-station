@@ -383,6 +383,7 @@
     state: icon
   content:
     - ClothingBeltHolsterFilledBlueshield # Pistol, 1+2 lethal speedloaders and 1 disabler speedloader
+    - WeaponEnergyRevolver
 
 - type: selectableSet
   id: BSOCQCSet
