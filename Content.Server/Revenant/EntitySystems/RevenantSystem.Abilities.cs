@@ -115,6 +115,7 @@ using Content.Shared.Physics;
 using Content.Shared.DoAfter;
 using Content.Shared.Emag.Systems;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Server.Chat.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
@@ -126,12 +127,22 @@ using Robust.Shared.Utility;
 using Robust.Shared.Map.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Content.Server.VendingMachines;
+using Content.Shared.Chat;
+using Content.Shared.VendingMachines;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
+
 
 namespace Content.Server.Revenant.EntitySystems;
 
 public sealed partial class RevenantSystem
 {
     [Dependency] private readonly EmagSystem _emagSystem = default!;
+    [Dependency] private readonly VendingMachineSystem _vending = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -141,6 +152,8 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
 
@@ -171,10 +184,50 @@ public sealed partial class RevenantSystem
             return;
         }
 
+        if (TryComp<VendingMachineComponent>(target, out var vendComp))
+        {
+            if (vendComp.Broken || _timing.CurTime < vendComp.DispenseOnHitEnd)
+            {
+                _popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-denied-flicker"), target, uid, PopupType.SmallCaution);
+                args.Handled = true;
+                return;
+            }
+
+            if (_random.Prob(0.4f))
+            {
+                var phraseNum = _random.Next(1, 39);
+                var message = Loc.GetString($"revenant-vending-phrase-{phraseNum}");
+
+                _chat.TrySendInGameICMessage(target, message, InGameICChatType.Speak, hideChat: false);
+            }
+
+            _vending.EjectRandom(target, throwItem: true, forceEject: false, vendComp);
+
+            var revenantVendingCooldown = TimeSpan.FromSeconds(7);
+
+            vendComp.DispenseOnHitEnd = _timing.CurTime + revenantVendingCooldown;
+
+            Dirty(target, vendComp);
+
+            args.Handled = true;
+            return;
+        }
+
+        if (_tag.HasTag(target, WindowTag))
+        {
+            var sound = new SoundPathSpecifier("/Audio/Effects/glass_knock.ogg");
+
+            _audio.PlayEntity(sound, Filter.Pvs(target), target, false);
+
+            _popup.PopupEntity(Loc.GetString("comp-window-knock"), target, PopupType.Medium);
+
+            args.Handled = true;
+            return;
+        }
+
         if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevenantComponent>(target))
             return;
 
-        args.Handled = true;
         if (!TryComp<EssenceComponent>(target, out var essence) || !essence.SearchComplete)
         {
             EnsureComp<EssenceComponent>(target);
