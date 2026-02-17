@@ -558,6 +558,15 @@
     codewordShowAll: true
 
 - type: entity
+  parent: Paper
+  id: AgentTaskPaper
+  name: 'Заключение' #agent-task-paper-name
+  description: 'На листке видны несколько синих пометок' #agent-task-paper-desc   #IDK, they don't want to work( - Renertt
+  categories: [ DoNotMap ]
+  components:
+  - type: AgentTaskPaper
+
+- type: entity
   name: envelope
   parent: BaseItem
   id: Envelope
