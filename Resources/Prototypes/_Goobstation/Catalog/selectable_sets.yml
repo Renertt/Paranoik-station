@@ -422,6 +422,19 @@
   content:
     - ClothingBeltMilitaryWebbingBSOFilled
 
+- type: selectableSet
+  id: BSOcounterintelligence
+  name: selectable-set-blueshield-counterintelligence-name
+  description: selectable-set-blueshield-counterintelligence-description
+  sprite:
+    sprite: Objects/Misc/handcuffs.rsi
+    state: handcuff
+  content:
+  - AgentTaskPaper
+  - ExecutiveIDCardChameleon
+  - ClothingBackpackChameleonFill
+  - ClothingMaskGasVoiceChameleon
+
 # Blueshield hardsuits
 
 - type: selectableSet
