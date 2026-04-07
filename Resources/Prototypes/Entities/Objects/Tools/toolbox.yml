@@ -212,3 +212,15 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+
+- type: entity
+  name: boombox
+  parent: ToolboxBase
+  id: Toolboombox
+  description: A bright red toolbox, there are also traces of some kind of liquid on it.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Toolboxes/toolboombox.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Tools/Toolboxes/toolboombox.rsi

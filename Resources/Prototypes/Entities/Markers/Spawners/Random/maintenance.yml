@@ -381,6 +381,8 @@
           weight: 0.25
         - id: MaterialWoodPlank10
           weight: 0.25
+        - id: ToolboomboxFilled
+          weight: 0.25
       - id: Plunger
       - id: PowerCellMedium
       - id: PowerCellSmall

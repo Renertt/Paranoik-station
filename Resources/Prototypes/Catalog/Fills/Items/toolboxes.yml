@@ -242,3 +242,17 @@
       - id: IngotGold
       - id: DrinkGoldenCup
         prob: 0.05
+
+- type: entity
+  id: ToolboomboxFilled
+  name: boombox
+  parent: Toolboombox
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUnderSocksCoder
+      - id: RemoteSignaller
+      - id: ClothingEyesGlassesMeson
+      - id: PowerCellHyper
+      - id: DrinkSpaceLube
