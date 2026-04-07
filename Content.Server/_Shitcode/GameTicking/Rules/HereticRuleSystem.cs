@@ -115,15 +115,20 @@ public sealed class HereticRuleSystem : GameRuleSystem<HereticRuleComponent>
         // add store
         var store = EnsureComp<StoreComponent>(target);
 
+        // БЕЗОПАСНОЕ ДОБАВЛЕНИЕ КАТЕГОРИЙ
         foreach (var category in rule.StoreCategories)
         {
             if (!store.Categories.Contains(category))
                 store.Categories.Add(category);
         }
 
+        // БЕЗОПАСНОЕ ДОБАВЛЕНИЕ ВАЛЮТЫ
         if (!store.CurrencyWhitelist.Contains(Currency))
             store.CurrencyWhitelist.Add(Currency);
 
+        // БЕЗОПАСНОЕ ОБНОВЛЕНИЕ БАЛАНСА
+        // .TryAdd не кидает ошибку, если ключ есть.
+        // Если хочешь просто добавить очков к существующим — используй проверку.
         if (!store.Balance.ContainsKey(Currency))
             store.Balance.Add(Currency, 2);
         else
