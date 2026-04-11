@@ -195,7 +195,7 @@ public sealed partial class RevenantSystem
 
             if (_random.Prob(0.4f))
             {
-                var phraseNum = _random.Next(1, 39);
+                var phraseNum = _random.Next(1, 41);
                 var message = Loc.GetString($"revenant-vending-phrase-{phraseNum}");
 
                 _chat.TrySendInGameICMessage(target, message, InGameICChatType.Speak, hideChat: false);
