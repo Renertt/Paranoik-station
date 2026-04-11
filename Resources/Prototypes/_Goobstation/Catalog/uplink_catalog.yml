@@ -573,15 +573,26 @@
   - UplinkWearables
 
 - type: listing
-  id: UplinkClothingHandsGlovesGuerrillaNukeops
+  id: UplinkClothingHandsGlovesGuerrilla
   name: uplink-guerrilla-gloves-name
   description: uplink-guerrilla-gloves-desc
   icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
   productEntity: ClothingHandsGlovesGuerrilla
   cost:
-    Telecrystal: 63
+    Telecrystal: 30
   categories:
   - UplinkWearables
+
+# - type: listing
+#  id: UplinkClothingHandsGlovesGuerrillaNukeops
+#  name: uplink-guerrilla-gloves-name
+#  description: uplink-guerrilla-gloves-desc
+#  icon: { sprite: /Textures/_Goobstation/Clothing/Hands/Gloves/guerrilla.rsi, state: icon }
+#  productEntity: ClothingHandsGlovesGuerrilla
+#  cost:
+#    Telecrystal: 60 #double the price
+#  categories:
+#  - UplinkWearables # Na, just let them have it the same
 
 # Job specific
 - type: listing
@@ -850,7 +861,7 @@
       blacklist:
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
-          - ContravendUplink
+          - ContravendUplink # Paranoik: Let it be for now
 
 - type: listing
   id: UplinkSmokeImplanter
