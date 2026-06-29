@@ -29,6 +29,16 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkBloodRedPaperBox
+  name: uplink-blood-red-paper-box-name
+  description: uplink-blood-red-paper-box-desc
+  productEntity: BloodRedPaperBox
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkPointless
+
+- type: listing
   id: UplinkRubberStampChameleon
   name: uplink-stamp-chameleon-name
   description: uplink-stamp-chameleon-desc
@@ -37,3 +47,18 @@
     Telecrystal: 20
   categories:
   - UplinkDeception
+  
+- type: listing
+  id: UplinkToolboxElectricalTurret
+  name: uplink-toolbox-electrical-turret-name
+  description: uplink-toolbox-electrical-turret-desc
+  icon: { sprite:  Objects/Tools/Toolboxes/toolbox_yellow.rsi, state: icon}
+  productEntity: BlueprintToolboxElectricalTurret
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkJob
+  conditions:
+    - !type:BuyerDepartmentCondition
+      whitelist:
+      - Engineering

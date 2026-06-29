@@ -65,19 +65,19 @@ ghost-role-information-Gman-rules = Вы не подчиняешься ника�
 
 # Blueshild Deputy
 
-ghost-role-information-bsd-name = Представитель Синего Щита
+ghost-role-information-bsd-name = Офцер "Синий Щит"
 ghost-role-information-bsd-description = Вас вызвал на станцию Представитель NanoTrasen. Подчиняйтесь ему, защищайте командование, следуйте Корпоративному Закону.
 ghost-role-information-bsd-rules = Следуйте приказам, данными вам [color=yellow][bold]Представителем NanoTrasen[/bold][/color], защищайте командование.
 # interns
-ghost-role-intern-name = Стажёр ЦентКом
-ghost-role-nerd-intern-name = Нёрд стажёр ЦентКом
-ghost-role-lead-intern-name = Глава стажёров ЦентКом
-ghost-role-intern-desc = Вы — стажёр ЦентКом, плохо оплачиваемый, голодный, с большой студенческой задолженностью, но других вариантов нет, так что лучше слушайтесь!
+ghost-role-intern-name = Стажёр ЦК
+ghost-role-nerd-intern-name = Нёрд стажёр ЦК
+ghost-role-lead-intern-name = Глава стажёров ЦК
+ghost-role-intern-desc = Вы — стажёр ЦК, плохо оплачиваемый, голодный, с большой студенческой задолженностью, но других вариантов нет, так что лучше слушайтесь!
 ghost-role-intern-rules = Следуйте приказам, данными вами [color=yellow][bold]Представителем NanoTrasen[/bold][/color] и ЦК. Защищайте командование, слушайтесь Главу стажёров.
 ghost-role-lead-intern-rules = Следуйте приказам, данными вами [color=yellow][bold]Представителем NanoTrasen[/bold][/color] и ЦК. Защищай командование, отдавайте приказы другим стажёрам.
 # cargo bingle
 ghost-role-cargo-bingle-name = Бингл снабжения
-ghost-role-cargo-bingle-desc = Служите Представителю Nanotrasen и его интересам, не причиняйте вред членам экипажа, помогайте отделу снабжения и станции.
+ghost-role-cargo-bingle-desc = Служите отделу снабжения и их интересам, не причиняйте вред членам экипажа.
 
 # shuttle roles
 

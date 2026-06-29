@@ -231,6 +231,9 @@ uplink-RPOA-desc = A single shot disposable thermobaric rocket launcher, which l
 uplink-ExplosivePayloadBlueprint-name = Explosive Payload Blueprint
 uplink-ExplosivePayloadBlueprint-desc = A blueprint that will allow a single lathe to print explosive payloads, an illegal and dangerous device that can be used in grenades.
 
+uplink-box-reagent-grenades-name = Box of reagent grenades
+uplink-box-reagent-grenades-desc = Contains 2 glue grenades and 2 lube grenades
+
 # Mechs
 
 uplink-mech-teleporter-heavy-name = Heavy Mech teleporter
@@ -282,6 +285,9 @@ uplink-autosurgeon-mantis-blade-desc = Modifies the user's arm to include the Ma
 
 uplink-autosurgeon-sandevistan-name = Sandevistan Autosurgeon
 uplink-autosurgeon-sandevistan-desc = Replaces the user's heart with Sandevistan, a synthetic organ that drastically increases the user's speed at the cost of their endurance. Requires too much fine tuning for a human to provide, comes with a one-use autosurgeon for installation.
+
+uplink-autosurgeon-statveka-sandevistan-name = Statveka Sandevistan Autosurgeon
+uplink-autosurgeon-statveka-sandevistan-desc = Replaces the user's heart with a statveka Sandevistan, a synthetic organ that drastically increases the user's speed and reflex at the cost of their endurance. Unlike their normal counterpart, this one seemingly slows down time near the user. comes with a one-use autosurgeon for installation.
 
 uplink-davids-jacket-name = Edgerunner Jacket
 uplink-davids-jacket-desc = A jacket for those particularly interested in improving their bodies, just like you.

@@ -52,6 +52,7 @@
     - CablesStatic
     - MaterialsStatic
     - LightsStatic
+    - LatheMiscStatic
     - PowerCellsStatic
     - ElectronicsStatic
     - MiscSignallersStatic
@@ -119,6 +120,8 @@
     - SharedBoardsStatic
     - CargoBoardsStatic
     - CablesStatic
+    - PartsStatic
+    - LatheMiscStatic
     - PowerCellsStatic
     - MiningToolsStatic
     - MiscSignallersStatic
@@ -187,8 +190,10 @@
     - CircuitFloorsStatic
     - MedicalBoardsStatic
     - MedicalBoardsStaticGoob
+    - ChemistryStatic
     - ToolsStatic
     - PartsStatic
+    - LatheMiscStatic
     - AtmosStatic
     - CablesStatic
     - MaterialsStatic
@@ -218,6 +223,7 @@
     - EngineeringBoards
     - SharedBoards
     - ScienceBoards
+    - ScienceBoardsGoob
     - ShuttleBoards
     - ShuttleBoardsGoob
     - MedicalBoardsGoob
@@ -280,6 +286,7 @@
     - PowerCellsStatic
     - LatheMiscStatic
     - HydroponicsStatic # CorvaxGoob
+    - PartsStatic
     - ChemistryStatic
     - TapeRecorderStatic
     - CondimentStatic
@@ -296,6 +303,8 @@
     - CameraBoards
     - ServiceTools
     - ServiceBoardsGoob # goob
+    - EntertainmentPack # goob
+    - BartendingPack # goob
     # Einstein Engines Packs
     - Translators
     # CorvaxGoob Packs
