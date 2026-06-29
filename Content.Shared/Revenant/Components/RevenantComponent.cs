@@ -98,6 +98,36 @@ public sealed partial class RevenantComponent : Component
     public float MaxEssenceUpgradeAmount = 10;
     #endregion
 
+    #region Scream Ability
+    /// <summary>
+    /// The amount of essence that is needed to use the ability.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("screamCost")]
+    public FixedPoint2 ScreamCost = 0;
+
+    /// <summary>
+    /// The status effects applied after the ability
+    /// the first float corresponds to amount of time the entity is stunned.
+    /// the second corresponds to the amount of time the entity is made solid.
+    /// </summary>
+    [DataField("screamDebuffs")]
+    public Vector2 ScreamDebuffs = new(0.5f, 0.5f);
+
+    /// <summary>
+    /// The radius around the user that this ability affects
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("screamRadius")]
+    public float ScreamRadius = 22f;
+
+    /// <summary>
+    /// The chance that an individual entity will have any of the effects
+    /// happen to it.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("screamEffectChance")]
+    public float ScreamEffectChance = 0.8f;
+
+    #endregion
+
     //In the nearby radius, causes various objects to be thrown, messed with, and containers opened
     //Generally just causes a mess
     #region Defile Ability

@@ -163,6 +163,7 @@ public sealed partial class RevenantSystem
         SubscribeLocalEvent<RevenantComponent, SoulEvent>(OnSoulSearch);
         SubscribeLocalEvent<RevenantComponent, HarvestEvent>(OnHarvest);
 
+        SubscribeLocalEvent<RevenantComponent, RevenantScreamActionEvent>(OnRevScreamAction);
         SubscribeLocalEvent<RevenantComponent, RevenantDefileActionEvent>(OnDefileAction);
         SubscribeLocalEvent<RevenantComponent, RevenantOverloadLightsActionEvent>(OnOverloadLightsAction);
         SubscribeLocalEvent<RevenantComponent, RevenantBlightActionEvent>(OnBlightAction);
@@ -364,6 +365,39 @@ public sealed partial class RevenantSystem
         _damage.TryChangeDamage(args.Args.Target, dspec, true, origin: uid);
 
         args.Handled = true;
+    }
+
+    private void OnRevScreamAction(EntityUid uid, RevenantComponent component, RevenantScreamActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryUseAbility(uid, component, component.ScreamCost, component.ScreamDebuffs))
+            return;
+
+        args.Handled = true;
+
+        var lookup = _lookup.GetEntitiesInRange(uid, component.ScreamRadius, LookupFlags.Approximate | LookupFlags.Static);
+        var tags = GetEntityQuery<TagComponent>();
+        var lights = GetEntityQuery<PoweredLightComponent>();
+
+        foreach (var ent in lookup)
+        {
+            //break windows
+            if (tags.HasComponent(ent) && _tag.HasTag(ent, WindowTag))
+            {
+                var dspec = new DamageSpecifier();
+                dspec.DamageDict.Add("Structural", 15); //_random.Next(1, 41)
+                _damage.TryChangeDamage(ent, dspec, origin: uid);
+            }
+
+            if (!_random.Prob(component.ScreamEffectChance))
+                continue;
+
+            //flicker lights
+            if (lights.HasComponent(ent))
+                _ghost.DoGhostBooEvent(ent);
+        }
     }
 
     private void OnDefileAction(EntityUid uid, RevenantComponent component, RevenantDefileActionEvent args)

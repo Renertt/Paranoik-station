@@ -21,6 +21,18 @@
 
 - type: entity
   parent: BaseAction
+  id: ActionRevenantScream
+  name: Scream
+  description: Does a little damage to windows and people. Costs 0 Essence.
+  components:
+  - type: Action
+    useDelay: 450
+    icon: Interface/Actions/revenant_scream.png
+  - type: InstantAction
+    event: !type:RevenantScreamActionEvent
+
+- type: entity
+  parent: BaseAction
   id: ActionRevenantDefile
   name: Defile
   description: Breaks windows, tiles, and opens nearby containers. Costs 30 Essence. #Goob edit

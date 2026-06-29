@@ -7,6 +7,17 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 - type: listing
+  id: RevenantScream
+  name: revenant-scream-name
+  description: revenant-scream-desc
+  productAction: ActionRevenantScream
+  categories:
+  - RevenantAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: RevenantDefile
   name: revenant-defile-name
   description: revenant-defile-desc

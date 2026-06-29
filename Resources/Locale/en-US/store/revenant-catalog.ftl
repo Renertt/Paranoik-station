@@ -4,6 +4,9 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
+revenant-scream-name = Scream
+revenant-scream-desc = Let out a piercing scream, causing nearby lights to go haywire, windows to shatter, and people to cover their ears in pain.
+
 revenant-defile-name = Defile
 revenant-defile-desc = Defiles the surrounding area, ripping up floors, damaging windows, opening containers, and throwing items. Using it leaves you vulnerable to attacks for a short period of time.
 
