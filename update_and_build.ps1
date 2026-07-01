@@ -22,7 +22,7 @@ Write-Host "`nГенерация ресурсов (Python)..." -ForegroundColor 
 if (Test-Path ".\RUN_THIS.py") {
     # Проверяем, установлен ли python
     if (-not (Get-Command python -ErrorAction SilentlyContinue)) { Show-Error "Python не найден в системе!" }
-    python .\RUN_THIS.py
+    py .\RUN_THIS.py
     if ($LASTEXITCODE -ne 0) { Show-Error "Скрипт предсборки RUN_THIS.py завершился с ошибкой." }
 } else {
     Write-Host "[Предупреждение] RUN_THIS.py не найден, пропускаем." -ForegroundColor Windows
@@ -30,8 +30,8 @@ if (Test-Path ".\RUN_THIS.py") {
 
 Write-Host "`nКомпиляция движка и игры (.NET 9)..." -ForegroundColor Yellow
 dotnet build --configuration Release
-if ($LASTEXITCODE -ne 0) { 
-    Show-Error "Критическая ошибка компиляции проекта! Сборка упала. Проверь логи выше." 
+if ($LASTEXITCODE -ne 0) {
+    Show-Error "Критическая ошибка компиляции проекта! Сборка упала. Проверь логи выше."
 }
 
 Write-Host "`n====================================================" -ForegroundColor Green
