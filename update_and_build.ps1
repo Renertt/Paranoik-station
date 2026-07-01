@@ -4,7 +4,7 @@ function Show-Error ($message) {
     Exit
 }
 
-# Фиксируем путь к папке, где лежит сам скрипт (корень репы)
+# Fix path to repo root
 $repoPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
 Set-Location $repoPath
 
