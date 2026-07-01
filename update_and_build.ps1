@@ -1,6 +1,6 @@
 function Show-Error ($message) {
     Add-Type -AssemblyName PresentationFramework
-    [System.Windows.MessageBox]::Show($message, "Ошибка сборки", "OK", "Error")
+    [System.Windows.MessageBox]::Show($message, "Build Error", "OK", "Error")
     Exit
 }
 
@@ -8,35 +8,34 @@ function Show-Error ($message) {
 $repoPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
 Set-Location $repoPath
 
-Write-Host "--- Проверка окружения перед сборкой ---" -ForegroundColor Cyan
+Write-Host "--- Checking environment before build ---" -ForegroundColor Cyan
 
-if (-not (Get-Command git -ErrorAction SilentlyContinue)) { Show-Error "Git не найден в системе! Запусти сначала start.bat" }
-if (-not (dotnet --list-sdks 2>$null | Select-String "9.0")) { Show-Error ".NET 9 SDK не найден в системе! Запусти сначала start.bat или перезагрузи ПК." }
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) { Show-Error "Git not found! Please run start.bat first." }
+if (-not (dotnet --list-sdks 2>$null | Select-String "9.0")) { Show-Error ".NET 9 SDK not found! Run start.bat or restart your PC." }
 
-Write-Host "Подтягиваем изменения из GitHub..." -ForegroundColor Yellow
+Write-Host "Pulling updates from GitHub..." -ForegroundColor Yellow
 git pull
 git submodule update --init --recursive
-if ($LASTEXITCODE -ne 0) { Show-Error "Ошибка при обновлении репозитория или субмодулей." }
+if ($LASTEXITCODE -ne 0) { Show-Error "Failed to update repository or submodules." }
 
-Write-Host "`nГенерация ресурсов (Python)..." -ForegroundColor Yellow
+Write-Host "`nGenerating resources (Python)..." -ForegroundColor Yellow
 if (Test-Path ".\RUN_THIS.py") {
-    # Проверяем, установлен ли python
-    if (-not (Get-Command python -ErrorAction SilentlyContinue)) { Show-Error "Python не найден в системе!" }
+    if (-not (Get-Command python -ErrorAction SilentlyContinue)) { Show-Error "Python not found in your system!" }
     py .\RUN_THIS.py
-    if ($LASTEXITCODE -ne 0) { Show-Error "Скрипт предсборки RUN_THIS.py завершился с ошибкой." }
+    if ($LASTEXITCODE -ne 0) { Show-Error "Python script RUN_THIS.py failed with error." }
 } else {
-    Write-Host "[Предупреждение] RUN_THIS.py не найден, пропускаем." -ForegroundColor Windows
+    Write-Host "[Warning] RUN_THIS.py not found, skipping." -ForegroundColor Yellow
 }
 
-Write-Host "`nКомпиляция движка и игры (.NET 9)..." -ForegroundColor Yellow
+Write-Host "`nBuilding the game (.NET 9)..." -ForegroundColor Yellow
 dotnet build --configuration Release
 if ($LASTEXITCODE -ne 0) {
-    Show-Error "Критическая ошибка компиляции проекта! Сборка упала. Проверь логи выше."
+    Show-Error "Compilation failed! Check the console logs above."
 }
 
 Write-Host "`n====================================================" -ForegroundColor Green
-Write-Host " ВСЁ ГОТОВО! Игра успешно собрана." -ForegroundColor Green
-Write-Host " Запуск: bin/Content.Client/Content.Client.exe" -ForegroundColor Cyan
+Write-Host " SUCCESS! The game has been built." -ForegroundColor Green
+Write-Host " Launch: bin/Content.Client/Content.Client.exe" -ForegroundColor Cyan
 Write-Host "====================================================" -ForegroundColor Green
 
-Read-Host "Нажми Enter, чтобы закрыть окно..."
+Read-Host "Press Enter to close this window..."
