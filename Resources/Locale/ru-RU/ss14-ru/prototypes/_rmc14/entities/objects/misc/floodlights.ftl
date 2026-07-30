@@ -27,3 +27,7 @@ ent-RMCTrafficLightAlt = { ent-RMCTrafficLight }
 ent-RMCTrafficLightBrokenAlt = { ent-RMCTrafficLightBroken }
     .suffix = Альтернативный
     .desc = { ent-RMCTrafficLightBroken.desc }
+
+ent-RMCStreetlightEC = уличный фонарный столб
+    .suffix = ТребЭлек
+    .desc = У вас есть дежавю, будто этим столбам раньше не требовалось электричество? Вы не ошиблись, это просто уличные фонарные столбы, которые требуют электричество. Они не включатся без него.
