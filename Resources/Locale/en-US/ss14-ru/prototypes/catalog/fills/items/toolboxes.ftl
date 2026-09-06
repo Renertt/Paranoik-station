@@ -25,3 +25,6 @@ ent-ToolboxGoldFilled = golden toolbox
 ent-ToolboomboxFilled = boombox
     .suffix = Filled
     .desc = { ent-Toolboombox.desc }
+ent-FoolboxFilled = { ent-Foolbox }
+    .suffix = Filled
+    .desc = { ent-Foolbox.desc }
