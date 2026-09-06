@@ -1222,29 +1222,16 @@
         components:
           - SurplusBundle
 
-<<<<<<< HEAD
 - type: listing
   id: UplinkOmnimedToolSyndie # CorvaxGoob
   name: uplink-omnimed-tool-syndie-name
   description: uplink-omnimed-tool-syndie-desc
   productEntity: OmnimedToolSyndie
   cost:
-    Telecrystal: 35
+    Telecrystal: 45
   icon: { sprite: /Textures/_Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi, state: evil }
   categories:
   - UplinkDisruption
-=======
-#- type: listing
-#  id: UplinkOmnimedToolSyndie # CorvaxGoob
-#  name: uplink-omnimed-tool-syndie-name
-#  description: uplink-omnimed-tool-syndie-desc
-#  productEntity: OmnimedToolSyndie
-#  cost:
-#    Telecrystal: 35
-#  icon: { sprite: /Textures/_Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi, state: evil }
-#  categories:
-#  - UplinkDisruption
->>>>>>> upstream/master
 
 # Goob - Not buyable anymore in favor of the custom lawboard.
 #- type: listing
@@ -2185,7 +2172,6 @@
   categories:
     - UplinkJob
 
-<<<<<<< HEAD
 
 - type: listing
   id: uplinkRiggedBoxingGlovesBoxer
@@ -2198,8 +2184,6 @@
     - UplinkJob
 
 
-=======
->>>>>>> upstream/master
 - type: listing
   id: uplinkNecronomicon
   name: uplink-necronomicon-name
@@ -2321,15 +2305,6 @@
     Telecrystal: 35 # goob
   categories:
   - UplinkJob
-<<<<<<< HEAD
-=======
-  conditions:
-  - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Chef can also get this
-    whitelist:
-    - Scientist
-    - ResearchDirector
-    - Chef
->>>>>>> upstream/master
 
 
 - type: listing
@@ -2391,12 +2366,6 @@
     Telecrystal: 20 # Goobstation
   categories:
   - UplinkJob
-<<<<<<< HEAD
-=======
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chaplain
 
 - type: listing
   id: UplinkSawAdvanced
@@ -2411,10 +2380,6 @@
     Telecrystal: 15 # Goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - MedicalDoctor
 
 - type: listing
   id: uplinkBriefcaseGun
@@ -2428,8 +2393,3 @@
     Telecrystal: 25 # Goob
   categories:
   - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Lawyer
->>>>>>> upstream/master

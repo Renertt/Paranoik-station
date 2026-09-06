@@ -112,20 +112,6 @@
     - Cargo
 
 - type: listing
-  id: UplinkOmnimedToolSyndie
-  name: uplink-omnimed-tool-name
-  description: uplink-omnimed-tool-desc
-  productEntity: OmnimedToolSyndie
-  cost:
-    Telecrystal: 30
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerDepartmentCondition
-    whitelist:
-    - Medical
-
-- type: listing
   id: UplinkRealBananiumSword
   name: uplink-real-banana-esword-name
   description: uplink-real-banana-esword-desc

@@ -176,6 +176,8 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolboombox.rsi
+
+- type: entity
   name: foolbox
   parent: ToolboxBase
   id: Foolbox

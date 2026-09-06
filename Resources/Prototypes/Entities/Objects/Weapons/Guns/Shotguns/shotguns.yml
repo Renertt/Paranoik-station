@@ -389,6 +389,8 @@
       prob: 0.1
     - id: FoodTinMRE
       prob: 0.5
+
+- type: entity
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunHushpup
   name: Hushpup
